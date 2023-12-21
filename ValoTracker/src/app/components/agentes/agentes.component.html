@@ -1,0 +1,38 @@
+<h1 style="font-size: 2em; text-align: center; font-weight: bold; color: white">Agentes</h1>
+<br><br>
+
+<div class="container">
+    <div class="row">
+      <div class="col">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Indice</th>
+              <th>Nombre</th>
+              <th>Rol</th>
+              <th>Nacionalidad</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let agente of agentes; let i=index">
+              <td>{{ i + 1 }}</td>
+              <td>{{ agente.nombre }}</td>
+              <td>{{ agente.rol }}</td>
+              <td>{{ agente.nacionalidad }}</td>
+              <td>
+                <button class="btn btn-primary" [routerLink]="['/actualiza', i]" [queryParams]="{ accion: '1' }">
+                  Actualizar
+                </button>
+                &nbsp;&nbsp;
+                <button class="btn btn-danger" (click)="eliminarAgente(i)">
+                  Eliminar
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  
